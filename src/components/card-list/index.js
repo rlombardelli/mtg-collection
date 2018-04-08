@@ -1,25 +1,28 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {getCards, getPage} from 'business/card-list/card-list-service';
+import {getCards, getSearchParams, getPage} from 'business/card-list/card-list-service';
 import {fetchCards} from 'business/card-list/card-list-actions';
 
 import Card from 'components/card';
+import Search from 'components/search';
 
 import styles from './card-list.css';
 
-class Viewer extends Component {
+class CardList extends Component {
   renderCards() {
     return [...this.props.cardIds].map(cardId =>
-      <a onDoubleClick={() => this.addCardToDeck(cardId)} key={cardId} className={styles.card}>
-        <Card id={cardId} />
-      </a>
+      <Card id={cardId} />
     );
   }
 
   render() {
     return (
-      <div className={styles.cardlist}>
+      <div className={styles.cardList}>
+        <h1>Card List</h1>
+        <div className={styles.search}>
+          <Search />
+        </div>
         <div className={styles.list}>
           {this.renderCards()}
         </div>
@@ -35,5 +38,6 @@ class Viewer extends Component {
 
 export default connect(state => ({
   cardIds: getCards(state),
+  searchParams: getSearchParams(state),
   page: getPage(state)
-}))(Viewer);
+}))(CardList);

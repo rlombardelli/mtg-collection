@@ -9,12 +9,14 @@ import cardListReducer from 'business/card-list/card-list-reducer';
 
 import CardList from 'components/card-list';
 
+import 'normalize.css';
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) :
   compose;
 
 const store = createStore(combineReducers({
-  cards: cardReducer,
+  card: cardReducer,
   cardList: cardListReducer,
 }), composeEnhancer(applyMiddleware(thunk)));
 
