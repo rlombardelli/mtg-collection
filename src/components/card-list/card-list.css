@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .search {
@@ -21,4 +22,32 @@
 .card {
   display: flex;
   flex: 0 0 223px;
+}
+
+.loadMore {
+  display: flex;
+  flex: 1 0 100%;
+  margin: 2rem 0;
+}
+
+.loadMoreCta {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 25rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  transition: background, 0.5s;
+  background: cadetblue;
+  cursor: pointer;
+}
+
+.loadMoreCta:hover {
+  background: #4d8182;
 }
