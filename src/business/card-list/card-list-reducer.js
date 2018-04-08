@@ -1,11 +1,22 @@
 import {createReducer} from 'redux-act';
 
 import {
-  fetchCardsSuccess
+  fetchCardsSuccess,
+  updateSearchParam
 } from './card-list-actions';
 
 const initialState = {
   cardIds: new Set(),
+  searchParams: {
+    set: '',
+    name: '',
+    colorIdentity: '',
+    rarity: '',
+    cmc: '',
+    types: '',
+    subtypes: '',
+    gameFormat: ''
+  },
   page: 1
 };
 
@@ -17,5 +28,12 @@ export default createReducer({
       ...cardIds
     ]) : new Set(cardIds),
     page
+  }),
+  [updateSearchParam]: (state, searchParam) => ({
+    ...state,
+    searchParams: {
+      ...state.searchParams,
+      ...searchParam
+    }
   })
 }, initialState);

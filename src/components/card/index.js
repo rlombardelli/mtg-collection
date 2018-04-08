@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {getCard} from 'business/card/card-service';
-import * as cardActions from 'business/card/card-actions';
 import styles from './card.css';
 
 class Card extends Component {
@@ -36,10 +35,6 @@ class Card extends Component {
         }
       </div>
     );
-  }
-
-  componentWillMount() {
-    this.props.dispatch(cardActions.fetchCards());
   }
 }
 

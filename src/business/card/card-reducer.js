@@ -1,5 +1,8 @@
 import {createReducer} from 'redux-act';
-import {fetchCardsSuccess} from './card-actions';
+
+import {
+  fetchCardsSuccess
+} from './card-actions';
 
 const initialState = {
   map: {}

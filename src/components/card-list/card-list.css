@@ -1,8 +1,12 @@
-.cardlist {
+.cardList {
   display: flex;
   flex-direction: column;
 }
 
+.search {
+  flex: 0 0 10rem;
+  display: flex;
+}
 
 .list {
   flex: 1;
@@ -13,4 +17,5 @@
 
 .card {
   display: flex;
+  flex: 0 0 223px;
 }
