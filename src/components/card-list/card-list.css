@@ -16,7 +16,8 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0 0.1rem;
 }
 
 .card {
