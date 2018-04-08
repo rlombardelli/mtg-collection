@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+  background-repeat: no-repeat;
+  width: 14rem;
+  height: 19.5rem;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
