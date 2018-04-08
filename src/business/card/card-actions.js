@@ -2,10 +2,16 @@ import {createAction} from 'redux-act';
 
 export const fetchCardsSuccess = createAction('card.fetchSuccess');
 
-export const fetchCards = (params = {}) => dispatch => {
-  const getParamsString = Object.keys(params)
+export const fetchCards = (params = {}, page = 1) => dispatch => {
+
+  const concatParams = {
+    ...params,
+    ...{page}
+  };
+
+  const getParamsString = Object.keys(concatParams)
     .reduce((paramsArray, paramKey) => {
-      Boolean(params) && paramsArray.push(`${paramKey}=${params[paramKey]}`);
+      Boolean(concatParams) && paramsArray.push(`${paramKey}=${concatParams[paramKey]}`);
       return paramsArray;
     }, [])
     .join('&');

@@ -10,6 +10,12 @@ import Search from 'components/search';
 import styles from './card-list.css';
 
 class CardList extends Component {
+
+  loadNextPage = () => {
+    console.log('hello');
+    this.props.dispatch(fetchCards(this.props.searchParams, this.props.page + 1));
+  };
+
   renderCards() {
     return [...this.props.cardIds].map(cardId =>
       <Card id={cardId} />
@@ -25,6 +31,9 @@ class CardList extends Component {
         </div>
         <div className={styles.list}>
           {this.renderCards()}
+        </div>
+        <div className={styles.loadMore}>
+          <button className={styles.loadMoreCta} onClick={this.loadNextPage} >Load more cards</button>
         </div>
       </div>
     );
