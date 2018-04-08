@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {fetchCards, updateSearchParam} from 'business/card-list/card-list-actions';
 import {getSearchParams} from 'business/card-list/card-list-service';
+import {getEditions} from 'business/edition/edition-service';
 
 import styles from './search.css';
 
@@ -22,6 +23,12 @@ class Search extends Component {
     }));
   }
 
+  renderEditions() {
+    return Object.values(this.props.editions).map(edition =>
+      <option value={edition.code}>{edition.name}</option>
+    );
+  }
+
   render() {
     const searchParams = this.props.searchParams || {};
 
@@ -30,11 +37,7 @@ class Search extends Component {
         <form action="javascript:void(0);" onSubmit={this.handleSubmit}>
           <select name="set" value={searchParams.set} onChange={this.handleInputChange}>
             <option value="">All Sets</option>
-            <option value="IMA">Iconic Masters</option>
-            <option value="RIX">Rivals of Ixalan</option>
-            <option value="XLN">Ixalan</option>
-            <option value="HOU">Hour of Devasation</option>
-            <option value="AKH">Amonkhet</option>
+            {this.renderEditions()}
           </select>
           <input name="name" value={searchParams.name} onChange={this.handleInputChange} placeholder="Name" />
           <input name="colorIdentity" value={searchParams.colorIdentity} placeholder="Colors" onChange={this.handleInputChange} />
@@ -66,5 +69,6 @@ class Search extends Component {
 }
 
 export default connect(state => ({
-  searchParams: getSearchParams(state)
+  searchParams: getSearchParams(state),
+  editions: getEditions(state),
 }))(Search);
