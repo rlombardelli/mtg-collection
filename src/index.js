@@ -7,6 +7,7 @@ import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import cardReducer from 'business/card/card-reducer';
 import cardListReducer from 'business/card-list/card-list-reducer';
 import editionReducer from 'business/edition/edition-reducer';
+import typeReducer from 'business/type/type-reducer';
 import CardList from 'components/card-list';
 
 import 'normalize.css';
@@ -19,6 +20,7 @@ const store = createStore(combineReducers({
   card: cardReducer,
   cardList: cardListReducer,
   edition: editionReducer,
+  type: typeReducer
 }), composeEnhancer(applyMiddleware(thunk)));
 
 const render = () => {

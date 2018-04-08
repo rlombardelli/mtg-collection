@@ -2,6 +2,7 @@ import {createReducer} from 'redux-act';
 
 import {
   fetchCardsSuccess,
+  fetchTypesSuccess,
   updateSearchParam
 } from './card-list-actions';
 

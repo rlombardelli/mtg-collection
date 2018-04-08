@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {fetchCards, updateSearchParam} from 'business/card-list/card-list-actions';
 import {getSearchParams} from 'business/card-list/card-list-service';
 import {getEditions} from 'business/edition/edition-service';
+import {getTypes} from 'business/type/type-service';
 
 import styles from './search.css';
 
@@ -29,6 +30,12 @@ class Search extends Component {
     );
   }
 
+  renderTypes() {
+    return this.props.types.map(type =>
+      <option value={type}>{type}</option>
+    );
+  }
+
   render() {
     const searchParams = this.props.searchParams || {};
 
@@ -42,7 +49,10 @@ class Search extends Component {
           <input name="name" value={searchParams.name} onChange={this.handleInputChange} placeholder="Name" />
           <input name="colorIdentity" value={searchParams.colorIdentity} placeholder="Colors" onChange={this.handleInputChange} />
           <input name="cmc" value={searchParams.cmc} placeholder="CMC" onChange={this.handleInputChange} />
-          <input name="types" value={searchParams.types} placeholder="types" onChange={this.handleInputChange} />
+          <select name="types" value={searchParams.types} onChange={this.handleInputChange}>
+            <option value="">All Types</option>
+            {this.renderTypes()}
+          </select>
           <input name="subtypes" value={searchParams.subtypes} placeholder="subtypes" onChange={this.handleInputChange} />
           <select name="rarity" value={searchParams.rarity} onChange={this.handleInputChange}>
             <option value="">All Rarities</option>
@@ -71,4 +81,5 @@ class Search extends Component {
 export default connect(state => ({
   searchParams: getSearchParams(state),
   editions: getEditions(state),
+  types: getTypes(state)
 }))(Search);

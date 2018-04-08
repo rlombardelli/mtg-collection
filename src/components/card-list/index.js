@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {getCards, getSearchParams, getPage, getHasMoreResult} from 'business/card-list/card-list-service';
 import {fetchCards} from 'business/card-list/card-list-actions';
 import {fetchEditions} from 'business/edition/edition-actions';
+import {fetchTypes} from 'business/type/type-actions';
 
 import Card from 'components/card';
 import Search from 'components/search';
@@ -17,6 +18,9 @@ class CardList extends Component {
   };
 
   renderCards() {
+    if (this.props.cardIds.size === 0) {
+      return <h2>No results</h2>;
+    }
     return [...this.props.cardIds].map(cardId =>
       <Card id={cardId} />
     );
@@ -44,6 +48,7 @@ class CardList extends Component {
   componentWillMount() {
     this.props.dispatch(fetchCards());
     this.props.dispatch(fetchEditions());
+    this.props.dispatch(fetchTypes());
   }
 }
 
