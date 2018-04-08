@@ -17,7 +17,8 @@ const initialState = {
     subtypes: '',
     gameFormat: ''
   },
-  page: 1
+  page: 1,
+  hasMoreResult: false
 };
 
 export default createReducer({
@@ -27,7 +28,8 @@ export default createReducer({
       ...Array.from(state.cardIds),
       ...cardIds
     ]) : new Set(cardIds),
-    page
+    page,
+    hasMoreResult: cardIds.length !== 100
   }),
   [updateSearchParam]: (state, searchParam) => ({
     ...state,
@@ -35,5 +37,5 @@ export default createReducer({
       ...state.searchParams,
       ...searchParam
     }
-  })
+  }),
 }, initialState);

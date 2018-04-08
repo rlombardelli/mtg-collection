@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {getCards, getSearchParams, getPage} from 'business/card-list/card-list-service';
+import {getCards, getSearchParams, getPage, getHasMoreResult} from 'business/card-list/card-list-service';
 import {fetchCards} from 'business/card-list/card-list-actions';
 
 import Card from 'components/card';
@@ -12,7 +12,6 @@ import styles from './card-list.css';
 class CardList extends Component {
 
   loadNextPage = () => {
-    console.log('hello');
     this.props.dispatch(fetchCards(this.props.searchParams, this.props.page + 1));
   };
 
@@ -32,9 +31,11 @@ class CardList extends Component {
         <div className={styles.list}>
           {this.renderCards()}
         </div>
-        <div className={styles.loadMore}>
-          <button className={styles.loadMoreCta} onClick={this.loadNextPage} >Load more cards</button>
-        </div>
+        {this.props.hasMoreResult === false &&
+          <div className={styles.loadMore}>
+            <button className={styles.loadMoreCta} onClick={this.loadNextPage} >Load more cards</button>
+          </div>
+        }
       </div>
     );
   }
@@ -44,9 +45,9 @@ class CardList extends Component {
   }
 }
 
-
 export default connect(state => ({
   cardIds: getCards(state),
   searchParams: getSearchParams(state),
-  page: getPage(state)
+  page: getPage(state),
+  hasMoreResult: getHasMoreResult(state),
 }))(CardList);

@@ -9,3 +9,7 @@ export function getSearchParams(state) {
 export function getPage(state) {
   return state.cardList.page;
 }
+
+export function getHasMoreResult(state) {
+  return state.cardList.hasMoreResult;
+}
