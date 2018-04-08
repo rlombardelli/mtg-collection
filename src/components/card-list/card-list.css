@@ -1,11 +1,14 @@
 .cardList {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .search {
-  flex: 0 0 10rem;
   display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
 }
 
 .list {

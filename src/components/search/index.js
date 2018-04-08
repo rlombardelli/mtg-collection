@@ -31,8 +31,10 @@ class Search extends Component {
           <select name="set" value={searchParams.set} onChange={this.handleInputChange}>
             <option value="">All Sets</option>
             <option value="IMA">Iconic Masters</option>
+            <option value="RIX">Rivals of Ixalan</option>
             <option value="XLN">Ixalan</option>
             <option value="HOU">Hour of Devasation</option>
+            <option value="AKH">Amonkhet</option>
           </select>
           <input name="name" value={searchParams.name} onChange={this.handleInputChange} placeholder="Name" />
           <input name="colorIdentity" value={searchParams.colorIdentity} placeholder="Colors" onChange={this.handleInputChange} />
@@ -51,9 +53,12 @@ class Search extends Component {
           <select name="gameFormat" value={searchParams.gameFormat} onChange={this.handleInputChange}>
             <option value="">All Formats</option>
             <option value="Standard">Standard</option>
+            <option value="Modern">Modern</option>
             <option value="Legacy">Legacy</option>
+            <option value="Vintage">Vintage</option>
+            <option value="Commander">Commander</option>
           </select>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Search" className={styles.searchCta} />
         </form>
       </div>
     );
