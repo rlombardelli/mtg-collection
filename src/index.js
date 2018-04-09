@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 import thunk from 'redux-thunk';
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
+
 import cardReducer from 'business/card/card-reducer';
 import cardListReducer from 'business/card-list/card-list-reducer';
 import editionReducer from 'business/edition/edition-reducer';
 import typeReducer from 'business/type/type-reducer';
-import CardList from 'components/card-list';
+import Header from 'components/header';
 
 import 'normalize.css';
 
@@ -27,7 +29,9 @@ const render = () => {
   ReactDOM.render((
     <AppContainer>
       <Provider store={store}>
-        <CardList />
+        <Router>
+          <Header />
+        </Router>
       </Provider>
     </AppContainer>
   ), document.getElementById('root'));
