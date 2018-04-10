@@ -1,7 +1,8 @@
 import {createReducer} from 'redux-act';
 
 import {
-  addCardToCollection
+  addCardToCollection,
+  removeCardFromCollection
 } from './collection-actions';
 
 const initialState = {
@@ -14,7 +15,7 @@ function increaseAmountOfCard(cards, cardId) {
       id: card.id,
       amount: card.amount + 1
     } :
-    card
+    null
   );
 }
 
@@ -27,4 +28,17 @@ export default createReducer({
         {id: cardId, amount: 1}
       ]
   }),
+  [removeCardFromCollection]: (state, cardId) => ({
+    cards: state.cards.reduce((cards, card) => {
+      if (card.id !== cardId) {
+        cards.push(card);
+      } else if (card.amount > 1) {
+        cards.push({
+          ...card,
+          amount: card.amount - 1
+        });
+      }
+      return cards;
+    }, [])
+  })
 }, initialState);
