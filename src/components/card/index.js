@@ -33,6 +33,9 @@ class Card extends Component {
             <div>{this.props.card.text}</div>
           </div>
         }
+        {this.props.amount && this.props.amount > 1 &&
+          <div className={styles.amount}>x{this.props.amount}</div>
+        }
       </div>
     );
   }

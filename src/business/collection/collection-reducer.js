@@ -5,14 +5,26 @@ import {
 } from './collection-actions';
 
 const initialState = {
-  cardIds: []
+  cards: []
 };
 
+function increaseAmountOfCard(cards, cardId) {
+  return cards.map(card => card.id === cardId  ?
+    {
+      id: card.id,
+      amount: card.amount + 1
+    } :
+    card
+  );
+}
+
 export default createReducer({
-  [addCardToCollection]: (state, cardId) => {
-    const cardIds = [...state.cardIds, cardId];
-    return {
-      cardIds: cardIds
-    };
-  },
+  [addCardToCollection]: (state, cardId) => ({
+    cards: state.cards.find(card => card.id === cardId) ?
+      increaseAmountOfCard(state.cards, cardId) :
+      [
+        ...state.cards,
+        {id: cardId, amount: 1}
+      ]
+  }),
 }, initialState);
