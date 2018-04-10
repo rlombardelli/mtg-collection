@@ -5,6 +5,7 @@ import {getCards, getSearchParams, getPage, getHasMoreResult} from 'business/car
 import {fetchCards} from 'business/card-list/card-list-actions';
 import {fetchEditions} from 'business/edition/edition-actions';
 import {fetchTypes} from 'business/type/type-actions';
+import {addCardToCollection} from 'business/collection/collection-actions';
 
 import Card from 'components/card';
 import Search from 'components/search';
@@ -12,6 +13,10 @@ import Search from 'components/search';
 import styles from './card-list.css';
 
 class CardList extends Component {
+
+  addCard = cardId => {
+    this.props.dispatch(addCardToCollection(cardId));
+  }
 
   loadNextPage = () => {
     this.props.dispatch(fetchCards(this.props.searchParams, this.props.page + 1));
@@ -22,7 +27,9 @@ class CardList extends Component {
       return <h2>No results</h2>;
     }
     return [...this.props.cardIds].map(cardId =>
-      <Card id={cardId} />
+      <a onDoubleClick={() => this.addCard(cardId)}>
+        <Card id={cardId} />
+      </a>
     );
   }
 
