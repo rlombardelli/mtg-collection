@@ -19,9 +19,12 @@ class Collection extends Component {
     }
 
     return [...this.props.cards].map(card =>
-      <a onDoubleClick={() => this.removeCard(card.id)}>
+      <div className={styles.card}>
         <Card id={card.id} amount={card.amount} />
-      </a>
+        <div className={styles.cardHover}>
+          <a onClick={() => this.removeCard(card.id)}>Remove card from Collection</a>
+        </div>
+      </div>
     );
   }
 

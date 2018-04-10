@@ -15,7 +15,7 @@ function increaseAmountOfCard(cards, cardId) {
       id: card.id,
       amount: card.amount + 1
     } :
-    null
+    card
   );
 }
 

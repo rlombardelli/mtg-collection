@@ -4,4 +4,42 @@
   flex-wrap: wrap;
   align-items: flex-start;
   padding: 0 0.1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  display: flex;
+  position: relative;
+}
+
+.cardHover {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  bottom: 0;
+  height: 40%;
+  background-color: black;
+  color: white;
+  opacity: 0;
+  transition: opacity, 0.5s;
+}
+
+.cardHover a {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 1rem;
+  user-select: none;
+}
+
+.card:hover .cardHover {
+  opacity: 0.8;
 }

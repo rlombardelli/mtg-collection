@@ -16,6 +16,7 @@
   display: flex;
   align-items: stretch;
   padding: 0 1rem;
+  user-select: none;
 }
 
 .link a {
@@ -30,6 +31,7 @@
   color: black;
   font-weight: 700;
   font-size: 1.3rem;
+  user-select: none;
 }
 
 .link:hover a{
