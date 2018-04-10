@@ -8,11 +8,11 @@ import styles from './collection.css';
 
 class Collection extends Component {
   renderCards() {
-    if (this.props.cardIds.length === 0) {
+    if (this.props.cards.length === 0) {
       return <h2>No card in your collection yet!</h2>;
     }
-    return [...this.props.cardIds].map(cardId =>
-      <Card id={cardId} />
+    return [...this.props.cards].map(card =>
+      <Card id={card.id} amount={card.amount} />
     );
   }
 
@@ -26,5 +26,5 @@ class Collection extends Component {
 }
 
 export default connect(state => ({
-  cardIds: getCardsInCollection(state),
+  cards: getCardsInCollection(state),
 }))(Collection);
