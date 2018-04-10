@@ -27,9 +27,12 @@ class CardList extends Component {
       return <h2>No results</h2>;
     }
     return [...this.props.cardIds].map(cardId =>
-      <a onDoubleClick={() => this.addCard(cardId)}>
+      <div className={styles.card}>
         <Card id={cardId} />
-      </a>
+        <div className={styles.cardHover}>
+          <a onClick={() => this.addCard(cardId)}>Add card to Collection</a>
+        </div>
+      </div>
     );
   }
 
