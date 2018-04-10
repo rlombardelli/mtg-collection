@@ -10,7 +10,6 @@ const initialState = {
 
 export default createReducer({
   [addCardToCollection]: (state, cardId) => {
-    console.log(state.cardIds, cardId, [...state.cardIds, cardId]);
     const cardIds = [...state.cardIds, cardId];
     return {
       cardIds: cardIds
