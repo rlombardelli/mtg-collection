@@ -56,7 +56,7 @@ class CardList extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchCards());
+    this.props.dispatch(fetchCards(this.props.searchParams));
     this.props.dispatch(fetchEditions());
     this.props.dispatch(fetchTypes());
   }
