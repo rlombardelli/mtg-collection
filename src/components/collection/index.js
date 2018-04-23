@@ -30,8 +30,11 @@ class Collection extends Component {
 
   render() {
     return (
-      <div className={styles.list}>
-        {this.renderCards()}
+      <div className={styles.wrapper}>
+        <h1 className={styles.title}>Collection</h1>
+        <div className={styles.list}>
+          {this.renderCards()}
+        </div>
       </div>
     );
   }
