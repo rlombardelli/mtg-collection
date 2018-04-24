@@ -37,6 +37,8 @@
   color: white;
   opacity: 0;
   transition: opacity, 0.5s;
+  border-bottom-right-radius: 0.8rem;
+  border-bottom-left-radius: 0.8rem;
 }
 
 .cardHover a {
