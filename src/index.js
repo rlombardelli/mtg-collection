@@ -11,6 +11,7 @@ import cardListReducer from 'business/card-list/card-list-reducer';
 import editionReducer from 'business/edition/edition-reducer';
 import typeReducer from 'business/type/type-reducer';
 import collectionReducer from 'business/collection/collection-reducer';
+import fastSearchReducer from 'business/fast-search/fast-search-reducer';
 import Header from 'components/header';
 
 import 'normalize.css';
@@ -25,6 +26,7 @@ const store = createStore(combineReducers({
   edition: editionReducer,
   type: typeReducer,
   collection: collectionReducer,
+  fastSearch: fastSearchReducer,
 }), composeEnhancer(applyMiddleware(thunk)));
 
 const render = () => {

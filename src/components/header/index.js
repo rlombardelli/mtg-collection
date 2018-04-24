@@ -10,8 +10,8 @@ export default class Header extends Component {
     return (
       <div>
         <div className={styles.header}>
-          <div className={styles.link}><NavLink to="/card-list" activeStyle={{color: 'cadetblue'}}>Card List</NavLink></div>
-          <div className={styles.link}><NavLink to="/collection" activeStyle={{color: 'cadetblue'}}>Collection</NavLink></div>
+          <div className={styles.link}><NavLink to="/card-list" activeStyle={{color: 'cadetblue', 'border-bottom': 'solid 4px cadetblue'}}>Card List</NavLink></div>
+          <div className={styles.link}><NavLink to="/collection" activeStyle={{color: 'cadetblue', 'border-bottom': 'solid 4px cadetblue'}}>Collection</NavLink></div>
         </div>
         <Route exact path="/card-list" component={CardList}/>
         <Route exact path="/collection" component={Collection}/>
