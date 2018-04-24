@@ -5,7 +5,7 @@ import {getCardsInCollection} from 'business/collection/collection-service';
 import {removeCardFromCollection} from 'business/collection/collection-actions';
 
 import Card from 'components/card';
-
+import FastSearch from 'components/fast-search';
 import styles from './collection.css';
 
 class Collection extends Component {
@@ -32,6 +32,7 @@ class Collection extends Component {
     return (
       <div className={styles.wrapper}>
         <h1 className={styles.title}>Collection</h1>
+        <FastSearch />
         <div className={styles.list}>
           {this.renderCards()}
         </div>
