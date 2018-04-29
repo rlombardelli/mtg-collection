@@ -1,5 +1,3 @@
-const env = process.env.NODE_ENV;
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
@@ -58,5 +56,6 @@ module.exports = {
         ],
       }
     ]
-  }
+  },
+  performance: { hints: false }
 };
