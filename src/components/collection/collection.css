@@ -2,8 +2,8 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -12,8 +12,8 @@
 }
 
 .list {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   align-items: flex-start;
   padding: 0 0.1rem;
@@ -28,17 +28,17 @@
 .cardHover {
   display: flex;
   position: absolute;
+  bottom: 0;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  bottom: 0;
-  height: 40%;
-  background-color: black;
-  color: white;
-  opacity: 0;
   transition: opacity, 0.5s;
-  border-bottom-right-radius: 0.8rem;
+  opacity: 0;
   border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+  background-color: black;
+  height: 40%;
+  color: white;
 }
 
 .cardHover a {
@@ -47,11 +47,11 @@
   flex-direction: column;
   align-self: center;
   justify-content: center;
-  text-align: center;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
   padding: 0 1rem;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
   user-select: none;
 }
 
