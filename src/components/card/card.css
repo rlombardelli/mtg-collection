@@ -7,28 +7,28 @@
 }
 
 .content {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  background-color: lightgray;
+  justify-content: space-evenly;
   padding: 0.2rem 0.7rem;
   border-radius: 0.8rem;
+  background-color: lightgray;
 }
 
 .amount {
   display: flex;
   position: absolute;
-  align-items: center;
-  justify-content: center;
   right: 0.3rem;
   bottom: 2.3rem;
+  align-items: center;
+  justify-content: center;
   opacity: 0.7;
+  border-radius: 0.2rem;
+  background-color: black;
   width: 4rem;
   height: 3.5rem;
-  background-color: black;
-  border-radius: 0.2rem;
   color: white;
   font-size: 2rem;
   user-select: none;

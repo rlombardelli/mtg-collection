@@ -42,6 +42,7 @@ class Collection extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
+        <h2 className={styles.title}>Fast Search</h2>
         <div className={styles.search}>
           <input name="name" value={this.props.searchName} onChange={this.handleChange} placeholder="Name" />
           <button onClick={() => this.handleSubmit()}>Search</button>
